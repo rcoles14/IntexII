@@ -1,0 +1,25 @@
+﻿@{
+}
+
+@model Intex.Models.Prediction
+
+@if (Model.PredictedValue > 4)
+    {
+    <h1>Fatal</h1>
+    }
+else if (Model.PredictedValue > 3)
+    {
+    <h1>Suspected Serious Injury</h1>
+    }
+else if (Model.PredictedValue > 2)
+    {
+    <h1>Suspected Minor Injury</h1>
+    }
+else if (Model.PredictedValue > 1)
+    {
+    <h1>Possible Injury</h1>
+    }
+else if (Model.PredictedValue > 0)
+    {
+    <h1>No Injury</h1>
+    }
