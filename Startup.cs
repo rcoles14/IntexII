@@ -48,14 +48,8 @@ namespace Intex
                 options.UseMySql(Configuration["ConnectionStrings:CollisionDbConnection"]);
             });
             services.AddScoped<ICollisionCrisisRepository, EFCollisionCrisisRepository>();
-            services.AddAuthentication()
-.AddGoogle(options =>
-{
-    IConfigurationSection googleAuthNSection =
-     Configuration.GetSection("Authentication:Google");
-    options.ClientId = googleAuthNSection["ClientId"];
-    options.ClientSecret = googleAuthNSection["ClientSecret"];
-});
+            services.AddAuthentication();
+                
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
