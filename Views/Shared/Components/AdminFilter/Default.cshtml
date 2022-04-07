@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="" asp-route-B="" class="btn @(ViewBag.Selected == null ? "btn-primary" : "btn-outline-secondary") btn-block">All</a>
+
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="work_zone_related" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "work_zone_related" ? "btn-primary" : "btn-outline-secondary")">Workzone</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="pedestrian_involved" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "pedestrian_involved" ? "btn-primary" : "btn-outline-secondary")">Pedestrian</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="bicyclist_involved" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "bicyclist_involved" ? "btn-primary" : "btn-outline-secondary")">Bicyclist</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="motorcycle_involved" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "motorcycle_involved" ? "btn-primary" : "btn-outline-secondary")">Motorcycle</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="improper_restraint" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "improper_restraint" ? "btn-primary" : "btn-outline-secondary")">Improper Restraint</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="unrestrained" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "unrestrained" ? "btn-primary" : "btn-outline-secondary")">Unrestrained</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="dui" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "dui" ? "btn-primary" : "btn-outline-secondary")">DUI</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="intersection_related" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "intersection_related" ? "btn-primary" : "btn-outline-secondary")">Intersection</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="wild_animal_related" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "wild_animal_related" ? "btn-primary" : "btn-outline-secondary")">Wild Animal</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="domestic_animal_related" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "domestic_animal_related" ? "btn-primary" : "btn-outline-secondary")">Domestic Animal</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="overturn_rollover" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "overturn_rollover" ? "btn-primary" : "btn-outline-secondary")">Overturned</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="commercial_motor_veh_involved" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "commercial_motor_veh_involved" ? "btn-primary" : "btn-outline-secondary")">Commercial Vehicle</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="teenage_driver_involved" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "teenage_driver_involved" ? "btn-primary" : "btn-outline-secondary")">Teenage Driver</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="older_driver_involved" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "older_driver_involved" ? "btn-primary" : "btn-outline-secondary")">Older Driver</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="night_dark_condition" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "night_dark_condition" ? "btn-primary" : "btn-outline-secondary")">Night or Dark</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="single_vehicle" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "single_vehicle" ? "btn-primary" : "btn-outline-secondary")">Single Vehicle</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="distracted_driving" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "distracted_driving" ? "btn-primary" : "btn-outline-secondary")">Distracted Driving</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="drowsy_driving" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "drowsy_driving" ? "btn-primary" : "btn-outline-secondary")">Drowsy Driving</a>
+<a asp-controller="Admin" asp-action="Index" asp-route-filter="roadway_departure" asp-route-B="true" class="btn btn-block @(ViewBag.Selected == "roadway_departure" ? "btn-primary" : "btn-outline-secondary")">Went Off Road</a>

@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.ML.OnnxRuntime;
 
 namespace Intex
 {
@@ -47,9 +48,11 @@ namespace Intex
             {
                 options.UseMySql(Configuration["ConnectionStrings:CollisionDbConnection"]);
             });
+            services.AddSingleton<InferenceSession>(
+                new InferenceSession("crash_severity_regres.onnx"));
             services.AddScoped<ICollisionCrisisRepository, EFCollisionCrisisRepository>();
             services.AddAuthentication();
-
+                
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
