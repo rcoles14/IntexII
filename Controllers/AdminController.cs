@@ -24,15 +24,15 @@ namespace Intex.Controllers
             signInManager = sim;
         }
         [Authorize]
-        public IActionResult Index(int selected, int pageNum = 1)
+        [HttpGet]
+        public IActionResult Index(int pageNum = 1)
         {
             
             int pageSize = 50;
-
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.crash_id == selected)
+                    CrashNormal = _repo.CrashNormal
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -50,6 +50,31 @@ namespace Intex.Controllers
                 return View(x);
          
             
+        }
+        [Authorize]
+        [HttpPost]
+        public IActionResult Index(int ID, int pageNum = 1)
+        {
+
+            int pageSize = 50;
+            var x = new CrashNormalViewModel
+            {
+
+                CrashNormal = _repo.CrashNormal.Where(p => p.crash_id == ID),
+
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumCrashes = _repo.CrashNormal.Count(),
+                    CrashesPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+
+            };
+
+            return View(x);
+
+
         }
         [Authorize]
         [HttpGet]
