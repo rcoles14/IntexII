@@ -6,52 +6,76 @@
     ViewData["Title"] = "Add/Edit Collision";
 }
 @model CrashNormal
-<h1>Add or Edit Collision</h1>
-<br />
-<br />
-<div class="text-center form-group">
-    <div class="container px-5 my-5">
-        <div class="row gx-5">
-            <div class="col-lg-4 mb-5 mb-lg-0">
-                <form method="post">
+
+<header class="bg-dark py-5">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center">
+            <div style="height: 100px; padding: 10px">
+                <h1 class="fw-bolder text-white">Report your Collision</h1>
+                <p class="lead fw-normal text-white-50">
+                    Fill out the following information to add or edit your collision report.
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<form method="post">
+    <!--User Type-->
+    <section class="py-5" id="features">
+        <div class="container px-5 my-5">
+            <div class="row gx-5">
+                <div class="col-lg-4 mb-5 mb-lg-0 bg-light">
+
+                    <!--First Section-->
                     <div asp-validation-summary="All"></div>
 
-                    <input type="hidden" asp-for="crash_id" /><br />
+                    <input type="hidden" asp-for="crash_id" />
                     <div class="form-group">
-                        <label asp-for="crash_date" class="p-2">Date (YYYY-MM-DD)</label>
-                        <input class="form-control-sm" asp-for="crash_date" /><br />
+                        <label asp-for="crash_date" class="lead fw-normal text-black">Date (YYYY-MM-DD)</label>
+                        <br />
+                        <input class="form-control-sm; float-right" asp-for="crash_date" /><br />
                     </div>
                     <div class="form-group">
-                        <label asp-for="crash_time" class="p-2">Time (HH:MM)</label>
-                        <input class="form-control-sm" asp-for="crash_time" /><br />
+                        <label asp-for="crash_time" class="lead fw-normal text-black">Time (HH:MM)</label>
+                        <br />
+                        <input class="form-control-sm; float-right" asp-for="crash_time" /><br />
                     </div>
                     <div class="form-group">
-                        <label asp-for="route" class="p-2">Route</label>
-                        <input class="form-control-sm" asp-for="route" /><br />
+                        <label asp-for="route" class="lead fw-normal text-black">Route</label>
+                        <br />
+                        <input class="form-control-sm; float-right" asp-for="route" /><br />
                     </div>
                     <div class="form-group">
-                        <label asp-for="milepoint" class="p-2">MilePoint</label>
-                        <input class="form-control-sm" asp-for="milepoint" /><br />
+                        <label asp-for="milepoint" class="lead fw-normal text-black">MilePoint</label>
+                        <br />
+                        <input class="form-control-sm; float-right" asp-for="milepoint" /><br />
                     </div>
                     <div class="form-group">
-                        <label asp-for="lat_utm_y" class="p-2">Latitude</label>
-                        <input class="form-control-sm" asp-for="lat_utm_y" /><br />
+                        <label asp-for="lat_utm_y" class="lead fw-normal text-black">Latitude</label>
+                        <br />
+                        <input class="form-control-sm; float-right" asp-for="lat_utm_y" /><br />
                     </div>
                     <div class="form-group">
-                        <label asp-for="long_utm_x" class="p-2">Longitude</label>
-                        <input class="form-control-sm" asp-for="long_utm_x" /><br />
+                        <label asp-for="long_utm_x" class="lead fw-normal text-black">Longitude</label>
+                        <br />
+                        <input class="form-control-sm; float-right" asp-for="long_utm_x" /><br />
                     </div>
                     <div class="form-group">
-                        <label asp-for="main_road_name" class="p-2">Main Road Name</label>
-                        <input class="form-control-sm" asp-for="main_road_name" /><br />
+                        <label asp-for="main_road_name" class="lead fw-normal text-black">Main Road Name</label>
+                        <br />
+                        <input class="form-control-sm; float-right" asp-for="main_road_name" /><br />
                     </div>
                     <div class="form-group">
-                        <label asp-for="city" class="p-2">City</label>
-                        <input class="form-control-sm" asp-for="city" /><br />
+                        <label asp-for="city" class="lead fw-normal text-black">City</label>
+                        <br />
+                        <input class="form-control-sm; float-right" asp-for="city" /><br />
                     </div>
                     <div class="form-group">
-                        <label asp-for="county_name" class="p-2">County</label>
-                        <select class="form-control-sm" asp-for="county_name">
+                        <label asp-for="county_name" class="lead fw-normal text-black">County</label>
+                        <br />
+                        <select class="form-control-sm; float-right" asp-for="county_name">
                             <option disabled selected>Choose a County</option>
                             @foreach (string c in ViewBag.County)
                             {
@@ -61,8 +85,9 @@
                         </select><br />
                     </div>
                     <div class="form-group">
-                        <label asp-for="crash_severity_id" class="p-2">Crash Severity</label>
-                        <select class="form-control-sm" asp-for="crash_severity_id">
+                        <label asp-for="crash_severity_id" class="lead fw-normal text-black">Crash Severity</label>
+                        <br />
+                        <select class="form-control-sm; float-right" asp-for="crash_severity_id">
                             <option disabled>Crash Severity</option>
                             @for (int i = 1; i < 6; i++)
                             {
@@ -71,112 +96,123 @@
 
                         </select><br />
                     </div>
-                    <div class="col mb-5 h-100">
-                        <div class="form-group">
-                            <label asp-for="work_zone_related" class="p-2">Work Zone Related?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="work_zone_related" />
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="row gx-5 row-cols-1 row-cols-md-2">
+
+                        <!--Second Section-->
+                        <div class="col mb-5 h-100">
+                            <div class="form-group">
+                                <label asp-for="work_zone_related" class="lead fw-normal text-black">Work Zone Related?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="work_zone_related" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="pedestrian_involved" class="lead fw-normal text-black">Pedestrian Involved?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="pedestrian_involved" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="motorcycle_involved" class="lead fw-normal text-black">Motorcycle Involved?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="motorcycle_involved" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="improper_restraint" class="lead fw-normal text-black">Improper Restraint?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="improper_restraint" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="unrestrained" class="lead fw-normal text-black">Unrestrained?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="unrestrained" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="dui" class="lead fw-normal text-black">DUI?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="dui" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="intersection_related" class="lead fw-normal text-black">Intersection Related?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="intersection_related" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="wild_animal_related" class="lead fw-normal text-black">Wild Animal Related?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="wild_animal_related" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="domestic_animal_related" class="lead fw-normal text-black">Domestic Animal Related?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="domestic_animal_related" />
+
+                            </div>
+                        </div>
+
+                        <!--Third Section-->
+                        <div class="col mb-5 h-100 bg-light" style="height: 100%">
+                            <div class="form-group">
+                                <label asp-for="overturn_rollover" class="lead fw-normal text-black">Overturn or Rollover?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="overturn_rollover" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="commercial_motor_veh_involved" class="lead fw-normal text-black">Commercial Vehicle Involved?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="commercial_motor_veh_involved" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="teenage_driver_involved" class="lead fw-normal text-black">Teenage Driver Involved?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="teenage_driver_involved" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="older_driver_involved" class="lead fw-normal text-black">Elderly Driver Involved?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="older_driver_involved" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="night_dark_condition" class="lead fw-normal text-black">Happened at night or in the dark?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="night_dark_condition" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="single_vehicle" class="lead fw-normal text-black">Single Vehicle?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="single_vehicle" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="distracted_driving" class="lead fw-normal text-black">Distracted Driving?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="distracted_driving" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="drowsy_driving" class="lead fw-normal text-black">Drowsy Driving?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="drowsy_driving" />
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="roadway_departure" class="lead fw-normal text-black">Went off Road?</label>
+                                <input type="checkbox" class="form-control-sm; float-right" asp-for="roadway_departure" />
+                            </div>
+                            @*<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />*@
+
+                            <div class="form-group; container" style ="justify-content: space-between; flex-direction: column; height: 100px; display: flex;">
+                                <div class="btn-holder" style="justify-content: flex-end; display: flex;">
+                                    <a asp-controller="Admin" asp-action="Index" class="btn btn-outline-danger float-left m-1">Cancel</a>
+                                    <button type="submit" class="btn btn-outline-success float-left m-1">Save</button>
+                                </div>
+                            </div>
 
                         </div>
-                        <div class="form-group">
-                            <label asp-for="pedestrian_involved" class="p-2">Pedestrian Involved?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="pedestrian_involved" />
 
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="motorcycle_involved" class="p-2">Motorcycle Involved?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="motorcycle_involved" />
-
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="improper_restraint" class="p-2">Improper Restraint?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="improper_restraint" />
-
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="unrestrained" class="p-2">Unrestrained?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="unrestrained" />
-
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="dui" class="p-2">DUI?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="dui" />
-
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="intersection_related" class="p-2">Intersection Related?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="intersection_related" />
-
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="wild_animal_related" class="p-2">Wild Animal Related?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="wild_animal_related" />
-
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="domestic_animal_related" class="p-2">Domestic Animal Related?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="domestic_animal_related" />
-
-                        </div>
                     </div>
-
-                    <div class="col mb-5 h-100">
-                        <div class="form-group">
-                            <label asp-for="overturn_rollover" class="p-2">Overturn or Rollover?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="overturn_rollover" />
-
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="commercial_motor_veh_involved" class="p-2">Commercial Vehicle Involved?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="commercial_motor_veh_involved" />
-
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="teenage_driver_involved" class="p-2">Teenage Driver Involved?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="teenage_driver_involved" />
-
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="older_driver_involved" class="p-2">Elderly Driver Involved?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="older_driver_involved" />
-
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="night_dark_condition" class="p-2">Happened at night or in the dark?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="night_dark_condition" />
-
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="single_vehicle" class="p-2">Single Vehicle?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="single_vehicle" />
-
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="distracted_driving" class="p-2">Distracted Driving?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="distracted_driving" />
-
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="drowsy_driving" class="p-2">Drowsy Driving?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="drowsy_driving" />
-
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="roadway_departure" class="p-2">Went off Road?</label>
-                            <input type="checkbox" class="form-control-sm" asp-for="roadway_departure" />
-
-                        </div>
-                        <br /><br />
-                        <div class="form-group">
-                            <a asp-controller="Admin" asp-action="Index" class="btn btn-outline-danger float-left m-1">Cancel</a>
-                            <button type="submit" class="btn btn-outline-success float-left m-1">Save</button>
-                        </div>
-
-                    </div>
-
-                </form>
+                </div>
             </div>
-
         </div>
-    </div>
-</div>
+    </section>
+
+</form>
+
 
