@@ -47,16 +47,16 @@
       <div>
           <label>Would your car have seatbelts?</label>
           <select asp-for="improper_restraint">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
+              <option value=1>No</option>
+              <option selected value=0>Yes</option>
           </select>
       </div>
 
       <div>
           <label>Would you be wearing a seatbelt?</label>
           <select asp-for="unrestrained">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
+              <option value=1>No</option>
+              <option selected value=0>Yes</option>
           </select>
       </div>
 
@@ -133,10 +133,10 @@
       </div>
 
       <div>
-          <label>Would there be only one vihicle involved?</label>
+          <label>Would there be multiple vehicles involved?</label>
           <select asp-for="single_vehicle">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
+              <option value=1>No</option>
+              <option value=0>Yes</option>
           </select>
       </div>
 
