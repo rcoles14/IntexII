@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Intex.Models
 {
-    public class CrashNormal
+    public class crashnormal
     {
         [Key]
         [Required]
