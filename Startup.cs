@@ -49,7 +49,7 @@ namespace Intex
                 options.UseMySql(Configuration["ConnectionStrings:CollisionDbConnection"]);
             });
             services.AddSingleton<InferenceSession>(
-                new InferenceSession("crash_severity_regres.onnx"));
+                new InferenceSession("crash_severity_classifier.onnx"));
             services.AddScoped<ICollisionCrisisRepository, EFCollisionCrisisRepository>();
             services.AddAuthentication();
                 
