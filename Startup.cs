@@ -30,7 +30,7 @@ namespace Intex
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
+                options.UseMySql(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -49,7 +49,7 @@ namespace Intex
                 options.UseMySql(Configuration["ConnectionStrings:CollisionDbConnection"]);
             });
             services.AddSingleton<InferenceSession>(
-                new InferenceSession("crash_severity_classifier.onnx"));
+                new InferenceSession("crash_severity_regres.onnx"));
             services.AddScoped<ICollisionCrisisRepository, EFCollisionCrisisRepository>();
             services.AddAuthentication();
                 
@@ -69,7 +69,7 @@ namespace Intex
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
