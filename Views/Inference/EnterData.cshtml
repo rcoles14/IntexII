@@ -4,165 +4,202 @@
 
 @model INTEXPractice.Models.PredictionData
 
-  <script language="javascript" type="text/javascript">
+<script language="javascript" type="text/javascript">
   <!--
-  function greeter() {
-      alert(document.getElementById(vehicleChkBox).value);
-  }
-      var checkbox = document.querySelector("input[type='checkbox']");
-      checkbox.addEventListener("change", function () {
-          this.value = this.checked ? 1 : 0;
-      });
-  </script>
+    function greeter() {
+        alert(document.getElementById(vehicleChkBox).value);
+    }
+    var checkbox = document.querySelector("input[type='checkbox']");
+    checkbox.addEventListener("change", function () {
+        this.value = this.checked ? 1 : 0;
+    });
+</script>
 
 
-  <form method="post" asp-controller="Inference" asp-action="Score">
+<header class="bg-dark py-5">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center">
+            <div style="height: 100px; padding: 10px">
+                <h1 class="fw-bolder text-white">Injury Predictor</h1>
+                <p class="lead fw-normal text-white-50">
+                    Fill out a scenario below and test to see the likelyhood of the resulting injury. This predictor will help you recognize which driving habits lead to the most dangerous driving scenarios. All data is based off of Utah's current collision data.
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
 
-      <div><label>How far will you go?:</label><input asp-for="milepoint"/>  Miles</div>
-      
-      <div>
-          <label>Would a pedestrain be involved?</label>
-          <select asp-for="pedestrian_involved">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
-          </select>
-      </div>
 
-      <div>
-          <label>Would a bicyclist be involved?</label>
-          <select asp-for="bicyclist_involved">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
-          </select>
-      </div>
+<!--Start of Form-->
+<form method="post" asp-controller="Inference" asp-action="Score">
 
-      <div>
-          <label>Would a motorcycle be involved?</label>
-          <select asp-for="motorcycle_involved">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
-          </select>
-      </div>
+    <section class="indent-1 row bg-light">
+        <!-- Section 1 -->
+        <section class="col m-4">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center justify-content-center">
+                    <div>
+                        <label class="lead fw-normal text-black">Miles traveled: </label>
+                        <input asp-for="milepoint" />
+                    </div>
+                    <div>
+                        <label class="lead fw-normal text-black">Is a pedestrain a involved?</label>
+                        <select asp-for="pedestrian_involved">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
 
-      <div>
-          <label>Would your car have seatbelts?</label>
-          <select asp-for="improper_restraint">
-              <option value=1>No</option>
-              <option selected value=0>Yes</option>
-          </select>
-      </div>
+                    <div>
+                        <label class="lead fw-normal text-black">Is a bicyclist be involved?</label>
+                        <select asp-for="bicyclist_involved" >
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
 
-      <div>
-          <label>Would you be wearing a seatbelt?</label>
-          <select asp-for="unrestrained">
-              <option value=1>No</option>
-              <option selected value=0>Yes</option>
-          </select>
-      </div>
+                    <div>
+                        <label class="lead fw-normal text-black">Is a motorcycle be involved?</label>
+                        <select asp-for="motorcycle_involved">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
 
-      <div>
-          <label>Would you be driving under the influence?</label>
-          <select asp-for="dui">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
-          </select>
-      </div>
+                    <div>
+                        <label class="lead fw-normal text-black">Does the car have seatbelts?</label>
+                        <select asp-for="improper_restraint">
+                            <option value=1>No</option>
+                            <option selected value=0>Yes</option>
+                        </select>
+                    </div>
 
-      <div>
-          <label>Would an intersection be involved?</label>
-          <select asp-for="intersection_related">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
-          </select>
-      </div>
+                    <div>
+                        <label class="lead fw-normal text-black">Are you wearing your seatbelt?</label>
+                        <select asp-for="unrestrained">
+                            <option value=1>No</option>
+                            <option selected value=0>Yes</option>
+                        </select>
+                    </div>
 
-      <div>
-          <label>Would a wild animal be involved?:</label>
-          <select asp-for="wild_animal_related">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
-          </select>
-      </div>
+                    <div>
+                        <label class="lead fw-normal text-black">Are you driving under the influence?</label>
+                        <select asp-for="dui">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
 
-      <div>
-          <label>Would a domestic animal be involved?:</label>
-          <select asp-for="domestic_animal_related">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
-          </select>
-      </div>
+                    <div>
+                        <label class="lead fw-normal text-black">Is an intersection involved?</label>
+                        <select asp-for="intersection_related">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
 
-      <div>
-          <label>Would your car rollover?</label>
-          <select asp-for="overturn_rollover">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
-          </select>
-      </div>
+                    <div>
+                        <label class="lead fw-normal text-black">Is a wild animal involved?:</label>
+                        <select asp-for="wild_animal_related">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
 
-      <div>
-          <label>Would a teenage drive be involved?</label>
-          <select asp-for="teenage_driver_involved">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
-          </select>
-      </div>
+                    <div>
+                        <label class="lead fw-normal text-black">Is a domestic animal be involved?:</label>
+                        <select asp-for="domestic_animal_related">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <div>
-          <label>Would a commercial vehicle be involved??</label>
-          <select asp-for="commercial_motor_veh_involved">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
-          </select>
-      </div>
+        <!-- Section 2 -->
+        <section class="col m-4">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center justify-content-center">
+                    <div>
+                        <label class="lead fw-normal text-black">Did your car rollover?</label>
+                        <select asp-for="overturn_rollover">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
 
-      <div>
-          <label>Would an older driver be involved?</label>
-          <select asp-for="older_driver_involved">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
-          </select>
-      </div>
+                    <div>
+                        <label class="lead fw-normal text-black">Is a teenage driver involved?</label>
+                        <select asp-for="teenage_driver_involved">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
 
-      <div>
-          <label>Would it be dark outside?</label>
-          <select asp-for="night_dark_condition">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
-          </select>
-      </div>
+                    <div>
+                        <label class="lead fw-normal text-black">Is a commercial vehicle involved??</label>
+                        <select asp-for="commercial_motor_veh_involved">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
 
-      <div>
-          <label>Would there be multiple vehicles involved?</label>
-          <select asp-for="single_vehicle">
-              <option value=1>No</option>
-              <option value=0>Yes</option>
-          </select>
-      </div>
+                    <div>
+                        <label class="lead fw-normal text-black">Is an older driver be involved?</label>
+                        <select asp-for="older_driver_involved">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
 
-      <div>
-          <label>Would you be distracted while driving?</label>
-          <select asp-for="distracted_driving">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
-          </select>
-      </div>
+                    <div>
+                        <label class="lead fw-normal text-black">Is it dark outside?</label>
+                        <select asp-for="night_dark_condition">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
 
-      <div>
-          <label>Would you be drowsy while driving?</label>
-          <select asp-for="drowsy_driving">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
-          </select>
-      </div>
+                    <div>
+                        <label class="lead fw-normal text-black">Are there multiple vehicles involved?</label>
+                        <select asp-for="single_vehicle">
+                            <option value=1>No</option>
+                            <option value=0>Yes</option>
+                        </select>
+                    </div>
 
-      <div>
-          <label>Would your car have left the road?</label>
-          <select asp-for="roadway_departure">
-              <option value=0>No</option>
-              <option value=1>Yes</option>
-          </select>
-      </div>
+                    <div>
+                        <label class="lead fw-normal text-black">Were you distracted while driving?</label>
+                        <select asp-for="distracted_driving">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
 
-      <button type="submit">Calculate</button>
-  </form>
+                    <div>
+                        <label class="lead fw-normal text-black">Were you drowsy while driving?</label>
+                        <select asp-for="drowsy_driving">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="lead fw-normal text-black">Did your car just leave the road?</label>
+                        <select asp-for="roadway_departure">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Calculate</button>
+                </div>
+            </div>
+        </section>
+     </section>
+</form>
+
+
+
+
