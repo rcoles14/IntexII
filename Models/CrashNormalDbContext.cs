@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Intex.Models
 {
-    public class CrashNormalDbContext : DbContext
+    public class crashnormalDbContext : DbContext
     {
-        public CrashNormalDbContext(DbContextOptions<CrashNormalDbContext> options) : base(options)
+        public crashnormalDbContext(DbContextOptions<crashnormalDbContext> options) : base(options)
         {
 
         }
-        public DbSet<CrashNormal> CrashNormal { get; set; }
+        public DbSet<crashnormal> crashnormal { get; set; }
     }
 }

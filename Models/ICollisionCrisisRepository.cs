@@ -7,11 +7,11 @@ namespace Intex.Models
 {
     public interface ICollisionCrisisRepository
     {
-        IQueryable<CrashNormal> CrashNormal { get;  }
+        IQueryable<crashnormal> crashnormal { get;  }
 
 
-        void Add(CrashNormal c);
-        void Update(CrashNormal bn);
-        void Delete(CrashNormal d);
+        void Add(crashnormal c);
+        void Update(crashnormal bn);
+        void Delete(crashnormal d);
     }
 }

@@ -44,7 +44,7 @@ namespace Intex
                 options.Password.RequiredUniqueChars = 4;
                 options.Password.RequireUppercase = true;
             });
-            services.AddDbContext<CrashNormalDbContext>(options =>
+            services.AddDbContext<crashnormalDbContext>(options =>
             {
                 options.UseMySql(Configuration["ConnectionStrings:CollisionDbConnection"]);
             });
