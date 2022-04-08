@@ -3,23 +3,549 @@
 
 @model Intex.Models.Prediction
 
-@if (Model.PredictedValue > 4)
-    {
-    <h1>Fatal</h1>
-    }
-else if (Model.PredictedValue > 3)
-    {
-    <h1>Suspected Serious Injury</h1>
-    }
-else if (Model.PredictedValue > 2)
-    {
-    <h1>Suspected Minor Injury</h1>
-    }
-else if (Model.PredictedValue > 1)
-    {
-    <h1>Possible Injury</h1>
-    }
-else if (Model.PredictedValue > 0)
-    {
-    <h1>No Injury</h1>
-    }
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+            .active, .collapsible:hover {
+                background-color: #555;
+            }
+
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <!--Fatal injury-->
+        @if (Model.PredictedValue > 4)
+        {
+            <header class="bg-dark py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div style="height: 100px; padding: 10px">
+                            <h1 class="fw-bolder text-white">
+                                Injury Result: <h1 class="fw-bolder text-danger">Fatal</h1>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+            <section class="indent-1 row bg-light">
+                <section class="col m-4">
+                    <div class="container px-5">
+                        <div class="row gx-5 align-items-center justify-content-center">
+                            <h2 class="fw-bolder mb-0">Most Likely Result:</h2>
+                            <br /><br />
+                            <button class="collapsible mb-0 bg-dark">Fatal</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    The situation you selected would most likely result in fatality.
+                                    Between the years 2016-2019, Utah lost a total of 960 lives due to car crashes.
+                                    These unnecessary deaths can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="col m-4">
+                    <div class="container px-5">
+                        <div class="row gx-5 align-items-center justify-content-center">
+                            <h2 class="fw-bolder mb-0">Other Scenarios Results May Be:</h2>
+                            <br /><br />
+                            <button class="collapsible mb-0 text-black" style="background-color: lightgray">Suspected Serious Injury</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    Between the years 2016-2019, 4,393 Utah drivers experienced serious injuries after a car crash.
+                                    These unnecessary injuries can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                            <button class="collapsible mb-0 bg-dark">Suspected Minor Injury</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    Between the years 2016-2019, 23,234 Utah drivers experienced minor injuries after a car crash.
+                                    These unnecessary injuries can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                            <button class="collapsible mb-0 text-black" style="background-color: lightgray">Possible Injury</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    Between the years 2016-2019, Utah drivers were involved in 43,125 car crashes that of possible injury.
+                                    The unnecessary risk can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                            <button class="collapsible mb-0 bg-dark">No Injury</button>
+                            <div class="content lead fw-normal text-black0">
+                                <p>
+                                    Between the years 2016-2019, Utah drivers were involved in 172,536 car crashes that did not result in injury.
+                                    Despite the lack of injury, the high number shows the lack of attention and safety Utah drivers give towards drivers.
+                                    The unnecessary risk can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+
+                            <script>
+                                var coll = document.getElementsByClassName("collapsible");
+                                var i;
+
+                                for (i = 0; i < coll.length; i++) {
+                                    coll[i].addEventListener("click", function () {
+                                        this.classList.toggle("active");
+                                        var content = this.nextElementSibling;
+                                        if (content.style.maxHeight) {
+                                            content.style.maxHeight = null;
+                                        } else {
+                                            content.style.maxHeight = content.scrollHeight + "px";
+                                        }
+                                    });
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <div>
+                        <a class="btn btn-lg px-4 bg-danger text-black float-lg-right m-5" asp-action="EnterData" asp-controller="Inference">Back</a>
+                    </div>
+                </section>
+            </section>
+        }
+
+
+        else if (Model.PredictedValue > 3)
+        {
+
+            <!--Suspected Serious Injury-->
+
+            <header class="bg-dark py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div style="height: 100px; padding: 10px">
+                            <h1 class="fw-bolder text-white">
+                                Injury Result: <h1 class="fw-bolder text-danger">Suspected Serious Injury</h1>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+            <section class="indent-1 row bg-light">
+                <section class="col m-4">
+                    <div class="container px-5">
+                        <div class="row gx-5 align-items-center justify-content-center">
+                            <h2 class="fw-bolder mb-0">Most Likely Result:</h2>
+                            <br /><br />
+                            <button class="collapsible mb-0 bg-dark">Suspected Serious Injury</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    The situation you selected would most likely result in a serious injury.
+                                    Between the years 2016-2019, 4,393 Utah drivers experienced serious injuries after a car crash.
+                                    These unnecessary injuries can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="col m-4">
+                    <div class="container px-5">
+                        <div class="row gx-5 align-items-center justify-content-center">
+                            <h2 class="fw-bolder mb-0">Other Scenario Results May Be:</h2>
+                            <br /><br />
+                            <button class="collapsible mb-0 text-black" style="background-color: lightgray">Fatal</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    Between the years 2016-2019, Utah lost a total of 960 lives due to car crashes.
+                                    These unnecessary deaths can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                            <button class="collapsible mb-0 bg-dark">Suspected Minor Injury</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    Between the years 2016-2019, 23,234 Utah drivers experienced minor injuries after a car crash.
+                                    These unnecessary injuries can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                            <button class="collapsible mb-0 text-black" style="background-color: lightgray">Possible Injury</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    Between the years 2016-2019, Utah drivers were involved in 43,125 car crashes that of possible injury.
+                                    The unnecessary risk can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                            <button class="collapsible mb-0 bg-dark">No Injury</button>
+                            <div class="content lead fw-normal text-black0">
+                                <p>
+                                    Between the years 2016-2019, Utah drivers were involved in 172,536 car crashes that did not result in injury.
+                                    Despite the lack of injury, the high number shows the lack of attention and safety Utah drivers give towards drivers.
+                                    The unnecessary risk can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+
+                            <script>
+                                var coll = document.getElementsByClassName("collapsible");
+                                var i;
+
+                                for (i = 0; i < coll.length; i++) {
+                                    coll[i].addEventListener("click", function () {
+                                        this.classList.toggle("active");
+                                        var content = this.nextElementSibling;
+                                        if (content.style.maxHeight) {
+                                            content.style.maxHeight = null;
+                                        } else {
+                                            content.style.maxHeight = content.scrollHeight + "px";
+                                        }
+                                    });
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <div>
+                        <a class="btn btn-lg px-4 bg-danger text-black float-lg-right m-5" asp-action="EnterData" asp-controller="Inference">Back</a>
+                    </div>
+                </section>
+            </section>
+
+        }
+
+        else if (Model.PredictedValue > 2)
+        {
+
+            <!--Suspected Minor Injury-->
+
+            <header class="bg-dark py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div style="height: 100px; padding: 10px">
+                            <h1 class="fw-bolder text-white">
+                                Injury Result: <h1 class="fw-bolder text-danger">Suspected Minor Injury</h1>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+            <section class="indent-1 row bg-light">
+                <section class="col m-4">
+                    <div class="container px-5">
+                        <div class="row gx-5 align-items-center justify-content-center">
+                            <h2 class="fw-bolder mb-0">Most Likely Result:</h2>
+                            <br /><br />
+                            <button class="collapsible mb-0 bg-dark">Suspected Minor Injury</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    The situation you selected would most likely result in a minor injury.
+                                    Between the years 2016-2019, 23,234 Utah drivers experienced minor injuries after a car crash.
+                                    These unnecessary injuries can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="col m-4">
+                    <div class="container px-5">
+                        <div class="row gx-5 align-items-center justify-content-center">
+                            <h2 class="fw-bolder mb-0">Other Scenario Results May Be:</h2>
+                            <br /><br />
+                            <button class="collapsible mb-0 text-black" style="background-color: lightgray">Fatal</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    Between the years 2016-2019, Utah lost a total of 960 lives due to car crashes.
+                                    These unnecessary deaths can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                            <button class="collapsible mb-0 bg-dark">Suspected Serious Injury</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    Between the years 2016-2019, 4,393 Utah drivers experienced serious injuries after a car crash.
+                                    These unnecessary injuries can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                            <button class="collapsible mb-0 text-black" style="background-color: lightgray">Possible Injury</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    Between the years 2016-2019, Utah drivers were involved in 43,125 car crashes that of possible injury.
+                                    The unnecessary risk can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                            <button class="collapsible mb-0 bg-dark">No Injury</button>
+                            <div class="content lead fw-normal text-black0">
+                                <p>
+                                    Between the years 2016-2019, Utah drivers were involved in 172,536 car crashes that did not result in injury.
+                                    Despite the lack of injury, the high number shows the lack of attention and safety Utah drivers give towards drivers.
+                                    The unnecessary risk can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+
+                            <script>
+                                var coll = document.getElementsByClassName("collapsible");
+                                var i;
+
+                                for (i = 0; i < coll.length; i++) {
+                                    coll[i].addEventListener("click", function () {
+                                        this.classList.toggle("active");
+                                        var content = this.nextElementSibling;
+                                        if (content.style.maxHeight) {
+                                            content.style.maxHeight = null;
+                                        } else {
+                                            content.style.maxHeight = content.scrollHeight + "px";
+                                        }
+                                    });
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <div>
+                        <a class="btn btn-lg px-4 bg-danger text-black float-lg-right m-5" asp-action="EnterData" asp-controller="Inference">Back</a>
+                    </div>
+                </section>
+            </section>
+
+        }
+
+        else if (Model.PredictedValue > 1)
+        {
+
+            <!--Possible Injury-->
+            <header class="bg-dark py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div style="height: 100px; padding: 10px">
+                            <h1 class="fw-bolder text-white">
+                                Injury Result: <h1 class="fw-bolder text-danger">Possible Injury</h1>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+            <section class="indent-1 row bg-light">
+                <section class="col m-4">
+                    <div class="container px-5">
+                        <div class="row gx-5 align-items-center justify-content-center">
+                            <h2 class="fw-bolder mb-0">Most Likely Result:</h2>
+                            <br /><br />
+                            <button class="collapsible mb-0 bg-dark">Possible Injury</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    The situation you selected would result in possible injury.
+                                    Between the years 2016-2019, Utah drivers were involved in 43,125 car crashes that of possible injury.
+                                    The unnecessary risk can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="col m-4">
+                    <div class="container px-5">
+                        <div class="row gx-5 align-items-center justify-content-center">
+                            <h2 class="fw-bolder mb-0">Other Scenario Results May Be:</h2>
+                            <br /><br />
+                            <button class="collapsible mb-0 text-black" style="background-color: lightgray">Fatal</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    Between the years 2016-2019, Utah lost a total of 960 lives due to car crashes.
+                                    These unnecessary deaths can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                            <button class="collapsible mb-0 bg-dark">Suspected Serious Injury</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    Between the years 2016-2019, 4,393 Utah drivers experienced serious injuries after a car crash.
+                                    These unnecessary injuries can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                            <button class="collapsible mb-0 text-black" style="background-color: lightgray">Suspected Minor Injury</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    Between the years 2016-2019, 23,234 Utah drivers experienced minor injuries after a car crash.
+                                    These unnecessary injuries can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                            <button class="collapsible mb-0 bg-dark">No Injury</button>
+                            <div class="content lead fw-normal text-black0">
+                                <p>
+                                    Between the years 2016-2019, Utah drivers were involved in 172,536 car crashes that did not result in injury.
+                                    Despite the lack of injury, the high number shows the lack of attention and safety Utah drivers give towards drivers.
+                                    The unnecessary risk can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+
+                            <script>
+                                var coll = document.getElementsByClassName("collapsible");
+                                var i;
+
+                                for (i = 0; i < coll.length; i++) {
+                                    coll[i].addEventListener("click", function () {
+                                        this.classList.toggle("active");
+                                        var content = this.nextElementSibling;
+                                        if (content.style.maxHeight) {
+                                            content.style.maxHeight = null;
+                                        } else {
+                                            content.style.maxHeight = content.scrollHeight + "px";
+                                        }
+                                    });
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <div>
+                        <a class="btn btn-lg px-4 bg-danger text-black float-lg-right m-5" asp-action="EnterData" asp-controller="Inference">Back</a>
+                    </div>
+                </section>
+            </section>
+
+
+        }
+
+        else if (Model.PredictedValue > 0)
+        {
+            <!--No Injury-->
+
+            <header class="bg-dark py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div style="height: 100px; padding: 10px">
+                            <h1 class="fw-bolder text-white">
+                                Injury Result: <h1 class="fw-bolder text-danger">No Injury</h1>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+            <section class="indent-1 row bg-light">
+                <section class="col m-4">
+                    <div class="container px-5">
+                        <div class="row gx-5 align-items-center justify-content-center">
+                            <h2 class="fw-bolder mb-0">Most Likely Result:</h2>
+                            <br /><br />
+                            <button class="collapsible mb-0 bg-dark">No Injury</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    The situation you selected would not likely result in injury.
+                                    Between the years 2016-2019, Utah drivers were involved in 172,536 car crashes that did not result in injury.
+                                    Despite the lack of injury, the high number shows the lack of attention and safety Utah drivers give towards drivers.
+                                    The unnecessary risk can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="col m-4">
+                    <div class="container px-5">
+                        <div class="row gx-5 align-items-center justify-content-center">
+                            <h2 class="fw-bolder mb-0">Other Scenario Results May Be:</h2>
+                            <br /><br />
+                            <button class="collapsible mb-0 text-black" style="background-color: lightgray">Fatal</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    Between the years 2016-2019, Utah lost a total of 960 lives due to car crashes.
+                                    These unnecessary deaths can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                            <button class="collapsible mb-0 bg-dark">Suspected Serious Injury</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    Between the years 2016-2019, 4,393 Utah drivers experienced serious injuries after a car crash.
+                                    These unnecessary injuries can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                            <button class="collapsible mb-0 text-black" style="background-color: lightgray">Suspected Minor Injury</button>
+                            <div class="content lead fw-normal text-black">
+                                <p>
+                                    Between the years 2016-2019, 23,234 Utah drivers experienced minor injuries after a car crash.
+                                    These unnecessary injuries can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+                            <button class="collapsible mb-0 bg-dark">Possible Injury</button>
+                            <div class="content lead fw-normal text-black0">
+                                <p>
+                                    Between the years 2016-2019, Utah drivers were involved in 43,125 car crashes that of possible injury.
+                                    The unnecessary risk can be avoided by eliminating distractions and practicing better driving habits.
+                                    As this crisis continues to escalate, more lives are at risk.
+                                </p>
+                            </div>
+
+                            <script>
+                                var coll = document.getElementsByClassName("collapsible");
+                                var i;
+
+                                for (i = 0; i < coll.length; i++) {
+                                    coll[i].addEventListener("click", function () {
+                                        this.classList.toggle("active");
+                                        var content = this.nextElementSibling;
+                                        if (content.style.maxHeight) {
+                                            content.style.maxHeight = null;
+                                        } else {
+                                            content.style.maxHeight = content.scrollHeight + "px";
+                                        }
+                                    });
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <div>
+                        <a class="btn btn-lg px-4 bg-danger text-black float-lg-right m-5" asp-action="EnterData" asp-controller="Inference">Back</a>
+                    </div>
+                </section>
+
+            </section>
+        }       
+    </section>
+
+</body>
+</html>
