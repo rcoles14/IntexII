@@ -31,8 +31,7 @@ namespace Intex
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseMySql(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                options.UseMySql(Environment.GetEnvironmentVariable("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
@@ -53,7 +52,7 @@ namespace Intex
             });
             services.AddDbContext<crashnormalDbContext>(options =>
             {
-                options.UseMySql(Configuration["ConnectionStrings:CollisionDbConnection"]);
+            options.UseMySql(Environment.GetEnvironmentVariable("CollisionDbConnection"));
             });
             services.AddSingleton<InferenceSession>(
                 new InferenceSession("wwwroot/crash_severity_classifier.onnx"));
