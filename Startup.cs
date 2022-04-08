@@ -35,6 +35,12 @@ namespace Intex
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddHsts(options =>
+            {
+                options.Preload = true;
+                options.IncludeSubDomains = true;
+                options.MaxAge = TimeSpan.FromDays(365);
+            });
             services.AddRazorPages();
             services.Configure<IdentityOptions>(options =>
             {
@@ -49,7 +55,7 @@ namespace Intex
                 options.UseMySql(Configuration["ConnectionStrings:CollisionDbConnection"]);
             });
             services.AddSingleton<InferenceSession>(
-                new InferenceSession("crash_severity_regres.onnx"));
+                new InferenceSession("crash_severity_classifier.onnx"));
             services.AddScoped<ICollisionCrisisRepository, EFCollisionCrisisRepository>();
             services.AddAuthentication();
                 
@@ -70,6 +76,13 @@ namespace Intex
                 app.UseHsts();
             }
             //app.UseHttpsRedirection();
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("Content-Security-Policy-Report-Only", "default-src 'self'");
+                await next();
+            });
+
+            app.UseHsts();
             app.UseStaticFiles();
 
             app.UseRouting();
