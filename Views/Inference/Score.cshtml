@@ -3,23 +3,23 @@
 
 @model Intex.Models.Prediction
 
-@if (Model.PredictedValue > 4)
+@if (Model.PredictedValue == 5)
     {
-    <h1>Fatal</h1>
+        <h1>@Model.PredictedValue Fatal</h1>
     }
-else if (Model.PredictedValue > 3)
+else if (Model.PredictedValue == 4)
     {
-    <h1>Suspected Serious Injury</h1>
+        <h1>@Model.PredictedValue Suspected Serious Injury</h1>
     }
-else if (Model.PredictedValue > 2)
+else if (Model.PredictedValue == 3)
     {
-    <h1>Suspected Minor Injury</h1>
+        <h1>@Model.PredictedValue Suspected Minor Injury</h1>
     }
-else if (Model.PredictedValue > 1)
+else if (Model.PredictedValue == 2)
     {
-    <h1>Possible Injury</h1>
+        <h1>@Model.PredictedValue Possible Injury</h1>
     }
-else if (Model.PredictedValue > 0)
+else if (Model.PredictedValue == 1)
     {
-    <h1>No Injury</h1>
+        <h1>@Model.PredictedValue No Injury</h1>
     }

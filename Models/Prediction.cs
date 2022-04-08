@@ -7,6 +7,6 @@ namespace Intex.Models
 {
     public class Prediction
     {
-        public float PredictedValue { get; set; }
+        public long PredictedValue { get; set; }
     }
 }
