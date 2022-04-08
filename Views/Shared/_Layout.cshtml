@@ -30,7 +30,8 @@
                     <li class="nav-item"><a class="nav-link" asp-action="About" asp-controller="Home">About</a></li>
                     <li class="nav-item"><a class="nav-link" asp-action="Reports" asp-controller="Home">Reports</a></li>
                     <partial name="_LoginPartial" />
-            </div>
+                </ul>
+</div>
         </div>
     </nav>
     <main>
@@ -45,7 +46,7 @@
                 <div class="col-auto">
                     <a class="link-light small" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     <span class="text-white mx-1">&middot;</span>
-                    <a class="link-light small" asp-controller="Home" asp-action="Yeet">Yeet</a>
+                    <a class="link-light small" asp-action="EnterData" asp-controller="Inference">Yeet</a>
                     <span class="text-white mx-1">&middot;</span>
                     <a class="link-light small" asp-action="About" asp-controller="Home">About</a>
                 </div>

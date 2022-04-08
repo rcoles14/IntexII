@@ -44,12 +44,12 @@ namespace Intex
                 options.Password.RequiredUniqueChars = 4;
                 options.Password.RequireUppercase = true;
             });
-            services.AddDbContext<CrashNormalDbContext>(options =>
+            services.AddDbContext<crashnormalDbContext>(options =>
             {
                 options.UseMySql(Configuration["ConnectionStrings:CollisionDbConnection"]);
             });
             services.AddSingleton<InferenceSession>(
-                new InferenceSession("crash_severity_regres.onnx"));
+                new InferenceSession("crash_severity_classifier.onnx"));
             services.AddScoped<ICollisionCrisisRepository, EFCollisionCrisisRepository>();
             services.AddAuthentication();
                 

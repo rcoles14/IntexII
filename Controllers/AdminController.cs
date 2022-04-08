@@ -24,15 +24,15 @@ namespace Intex.Controllers
             signInManager = sim;
         }
         [Authorize]
-        public IActionResult Index(int selected, int pageNum = 1)
+        [HttpGet]
+        public IActionResult Index(int pageNum = 1)
         {
             
             int pageSize = 50;
-
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.crash_id == selected)
+                    crashnormal = _repo.crashnormal
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -40,7 +40,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -52,16 +52,41 @@ namespace Intex.Controllers
             
         }
         [Authorize]
+        [HttpPost]
+        public IActionResult Index(int ID, int pageNum = 1)
+        {
+
+            int pageSize = 50;
+            var x = new CrashNormalViewModel
+            {
+
+                crashnormal = _repo.crashnormal.Where(p => p.crash_id == ID),
+
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumCrashes = _repo.crashnormal.Count(),
+                    CrashesPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+
+            };
+
+            return View(x);
+
+
+        }
+        [Authorize]
         [HttpGet]
         public IActionResult Add()
         {
-            ViewBag.County = _repo.CrashNormal.Select(x => x.county_name).Distinct().OrderBy(x => x).ToList();
+            ViewBag.County = _repo.crashnormal.Select(x => x.county_name).Distinct().OrderBy(x => x).ToList();
 
                 return View();
 
         }
         [HttpPost]
-        public IActionResult Add(CrashNormal c)
+        public IActionResult Add(crashnormal c)
         {
             
             _repo.Add(c);
@@ -71,12 +96,12 @@ namespace Intex.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            ViewBag.County = _repo.CrashNormal.OrderBy(x => x.county_name).Select(x => x.county_name).Distinct().ToList();
-            var crash = _repo.CrashNormal.Single(x => x.crash_id == id);
+            ViewBag.County = _repo.crashnormal.OrderBy(x => x.county_name).Select(x => x.county_name).Distinct().ToList();
+            var crash = _repo.crashnormal.Single(x => x.crash_id == id);
             return View("Add", crash);
         }
         [HttpPost]
-        public IActionResult Edit(CrashNormal cn)
+        public IActionResult Edit(crashnormal cn)
         {
             _repo.Update(cn); 
 
@@ -88,14 +113,14 @@ namespace Intex.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var crash = _repo.CrashNormal.Single(x => x.crash_id == id);
+            var crash = _repo.crashnormal.Single(x => x.crash_id == id);
                 return View("Delete", crash);
 
         }
             
         
         [HttpPost]
-        public IActionResult Delete(CrashNormal d)
+        public IActionResult Delete(crashnormal d)
         {
             _repo.Delete(d);
             return RedirectToAction("Index");

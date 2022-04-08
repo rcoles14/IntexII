@@ -34,7 +34,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.work_zone_related == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.work_zone_related == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -42,7 +42,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Where(p => p.work_zone_related == B).Count(),
+                        TotalNumCrashes = _repo.crashnormal.Where(p => p.work_zone_related == B).Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -56,7 +56,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                     {
 
-                        CrashNormal = _repo.CrashNormal.Where(p => p.pedestrian_involved == B)
+                        crashnormal = _repo.crashnormal.Where(p => p.pedestrian_involved == B)
                         .OrderBy(c => c.crash_id)
                         .Skip((pageNum - 1) * pageSize)
                         .Take(pageSize),
@@ -64,7 +64,7 @@ namespace Intex.Controllers
 
                         PageInfo = new PageInfo
                         {
-                            TotalNumCrashes = _repo.CrashNormal.Count(),
+                            TotalNumCrashes = _repo.crashnormal.Count(),
                             CrashesPerPage = pageSize,
                             CurrentPage = pageNum
                         }
@@ -80,7 +80,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.bicyclist_involved == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.bicyclist_involved == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -88,7 +88,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -103,7 +103,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.motorcycle_involved == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.motorcycle_involved == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -111,7 +111,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -127,7 +127,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.improper_restraint == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.improper_restraint == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -135,7 +135,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -151,7 +151,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.unrestrained == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.unrestrained == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -159,7 +159,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -175,7 +175,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.dui == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.dui == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -183,7 +183,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -199,7 +199,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.intersection_related == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.intersection_related == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -207,7 +207,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -221,7 +221,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.wild_animal_related == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.wild_animal_related == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -229,7 +229,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -243,7 +243,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.domestic_animal_related == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.domestic_animal_related == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -251,7 +251,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -265,7 +265,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.overturn_rollover == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.overturn_rollover == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -273,7 +273,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -287,7 +287,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.commercial_motor_veh_involved == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.commercial_motor_veh_involved == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -295,7 +295,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -309,7 +309,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.teenage_driver_involved == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.teenage_driver_involved == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -317,7 +317,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -331,7 +331,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.older_driver_involved == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.older_driver_involved == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -339,7 +339,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -353,7 +353,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.night_dark_condition == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.night_dark_condition == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -361,7 +361,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -375,7 +375,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.single_vehicle == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.single_vehicle == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -383,7 +383,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -397,7 +397,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.distracted_driving == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.distracted_driving == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -405,7 +405,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -419,7 +419,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.drowsy_driving == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.drowsy_driving == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -427,7 +427,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -441,7 +441,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal.Where(p => p.roadway_departure == B)
+                    crashnormal = _repo.crashnormal.Where(p => p.roadway_departure == B)
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -449,7 +449,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }
@@ -464,7 +464,7 @@ namespace Intex.Controllers
                 var x = new CrashNormalViewModel
                 {
 
-                    CrashNormal = _repo.CrashNormal
+                    crashnormal = _repo.crashnormal
                     .OrderBy(c => c.crash_id)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(pageSize),
@@ -472,7 +472,7 @@ namespace Intex.Controllers
 
                     PageInfo = new PageInfo
                     {
-                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        TotalNumCrashes = _repo.crashnormal.Count(),
                         CrashesPerPage = pageSize,
                         CurrentPage = pageNum
                     }

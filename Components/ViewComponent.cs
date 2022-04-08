@@ -20,7 +20,7 @@ namespace Intex.Components
         public IViewComponentResult Invoke()
         {
             
-            var filter = _repo.CrashNormal;
+            var filter = _repo.crashnormal;
             return View(filter);
 
         }
