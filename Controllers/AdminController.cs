@@ -24,14 +24,44 @@ namespace Intex.Controllers
             signInManager = sim;
         }
         [Authorize]
+        [HttpGet]
         public IActionResult Index(int pageNum = 1)
         {
+            
             int pageSize = 50;
+                var x = new CrashNormalViewModel
+                {
+
+                    CrashNormal = _repo.CrashNormal
+                    .OrderBy(c => c.crash_id)
+                    .Skip((pageNum - 1) * pageSize)
+                    .Take(pageSize),
 
 
+                    PageInfo = new PageInfo
+                    {
+                        TotalNumCrashes = _repo.CrashNormal.Count(),
+                        CrashesPerPage = pageSize,
+                        CurrentPage = pageNum
+                    }
+
+                };
+
+                return View(x);
+         
+            
+        }
+        [Authorize]
+        [HttpPost]
+        public IActionResult Index(int ID, int pageNum = 1)
+        {
+
+            int pageSize = 50;
             var x = new CrashNormalViewModel
             {
-                CrashNormal = _repo.CrashNormal.OrderBy(c => c.crash_id).Skip((pageNum - 1) * pageSize).Take(pageSize),
+
+                CrashNormal = _repo.CrashNormal.Where(p => p.crash_id == ID),
+
 
                 PageInfo = new PageInfo
                 {
@@ -42,8 +72,9 @@ namespace Intex.Controllers
 
             };
 
-                return View(x);
- 
+            return View(x);
+
+
         }
         [Authorize]
         [HttpGet]

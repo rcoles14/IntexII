@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.ML.OnnxRuntime;
 
 namespace Intex
 {
@@ -50,14 +51,8 @@ namespace Intex
             services.AddSingleton<InferenceSession>(
                 new InferenceSession("crash_severity_classifier.onnx"));
             services.AddScoped<ICollisionCrisisRepository, EFCollisionCrisisRepository>();
-            services.AddAuthentication()
-.AddGoogle(options =>
-{
-    IConfigurationSection googleAuthNSection =
-     Configuration.GetSection("Authentication:Google");
-    options.ClientId = googleAuthNSection["ClientId"];
-    options.ClientSecret = googleAuthNSection["ClientSecret"];
-});
+            services.AddAuthentication();
+                
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

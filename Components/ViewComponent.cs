@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace Intex.Components
 {
@@ -18,8 +19,8 @@ namespace Intex.Components
 
         public IViewComponentResult Invoke()
         {
-            ViewBag.Selected = RouteData?.Values["filter"];
-            var filter = _repo.CrashNormal.Select(c => c.city).OrderBy(x => x);
+            
+            var filter = _repo.CrashNormal;
             return View(filter);
 
         }

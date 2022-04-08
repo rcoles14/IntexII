@@ -1,0 +1,55 @@
+﻿
+@model CrashNormalViewModel
+
+@{
+    ViewData["Title"] = "Reports";
+}
+
+<div class="text-center">
+    <a class="btn btn-group m1 btn btn-success" asp-action="Add">Add Incident</a>
+    <a class="btn btn-outline-dark btn-group m1" asp-action="Index">First Page</a>
+    @if (Model.PageInfo.CurrentPage != 1)
+    {
+        <a class="btn btn-outline-dark btn-group m1" asp-action="Reports" asp-route-pageNum="@Model.PageInfo.PrevPage">Previous Page</a>
+    }
+    <div page-blah="@Model.PageInfo" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark"
+         page-class-selected="btn-primary" class="btn-group m-1"></div><a class="btn btn-outline-dark btn-group m1" asp-action="Reports" asp-route-pageNum="@Model.PageInfo.TotalPages">Last Page</a>
+</div>
+<div class="row m-1 p1">
+    <div class="col-3" id="filter"><vc:filter></vc:filter></div>
+    <div class="col-9">
+    <table class="table table-sm table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Route</th>
+                <th>Milepoint</th>
+                <th>Road Name</th>
+                <th>City</th>
+                <th>County</th>
+                <th>Severity</th>
+                <th>Crash Date</th>
+                <th>Crash Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (CrashNormal c in Model.CrashNormal)
+            {
+                <tr>
+                    <td>@c.crash_id</td>
+                    <td>@c.route</td>
+                    <td>@c.milepoint</td>
+                    <td>@c.main_road_name</td>
+                    <td>@c.city</td>
+                    <td>@c.county_name</td>
+                    <td>@c.crash_severity_id</td>
+                    <td>@c.crash_date</td>
+                    <td>@c.crash_time</td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
+</div>
